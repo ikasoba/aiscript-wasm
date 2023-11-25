@@ -1,3 +1,15 @@
-@alloc(size: usize) {
-  ...
+
+var __last_ptr_offset = 1
+
+@alloc(size: u32) {
+  var is_using = Wasm:byte:load(__last_ptr_offset)
+  if is_using == 0 {
+    var ptr_size = Wasm:u32:load(__last_ptr_offset + 1)
+
+    if size > ptr_size {
+      
+    }
+
+    Wasm:byte:store(__last_ptr_offset, )
+  }
 }
